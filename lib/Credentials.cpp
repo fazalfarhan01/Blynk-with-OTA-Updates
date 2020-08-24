@@ -9,3 +9,7 @@ char auth[] = "QpZfqjc739IwJKQ6FcBKyAUf1VkXqZuT";
 
 const char *ssid = STASSID;
 const char *password = STAPSK;
+
+
+char *hostName = "NodeMCU";
+char *OTAPassword = "9716";

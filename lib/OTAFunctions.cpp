@@ -16,8 +16,8 @@ void initialiseOTA()
         ESP.restart();
     }
 
-    ArduinoOTA.setHostname("NodeMCU");
-    ArduinoOTA.setPassword("9716");
+    ArduinoOTA.setHostname(hostName);
+    ArduinoOTA.setPassword(OTAPassword);
 
     ArduinoOTA.onStart([]() {
         String type;
