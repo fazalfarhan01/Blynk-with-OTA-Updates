@@ -56,7 +56,7 @@ BLYNK_CONNECTED(){
 
 void yourSetup()
 {
-  Blynk.begin(auth, ssid, password);
+  Blynk.begin(auth, ssid, password, serverName, 8080);
   pinMode(D1, OUTPUT);
   pinMode(D2, OUTPUT);
   pinMode(D3, OUTPUT);
