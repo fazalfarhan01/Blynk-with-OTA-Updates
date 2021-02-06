@@ -50,8 +50,10 @@ BLYNK_WRITE(V4)
 }
 BLYNK_WRITE(V12)
 {
-  if (!param.asInt() >= 100)
+  if (param.asInt() >= 100)
   {
+    Serial.println("Received Restart Count: " + String(param.asInt()));
+    Blynk.notify("Restarting, Please Wait..!");
     ESP.restart();
   }
 }

@@ -4,5 +4,5 @@
 .vscode/launch.json
 .vscode/ipch
 .travis.yml
-src/MyCredentials.cpp
+src/MyCredentials.txt
 .vscode
