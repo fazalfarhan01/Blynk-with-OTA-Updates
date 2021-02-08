@@ -54,6 +54,7 @@ BLYNK_WRITE(V12)
   {
     Serial.println("Received Restart Count: " + String(param.asInt()));
     Blynk.notify("Restarting, Please Wait..!");
+    Blynk.virtualWrite(V12, 0);
     ESP.restart();
   }
 }
@@ -70,11 +71,13 @@ void sendUpTime()
   Blynk.virtualWrite(V10, uptime);
 }
 
-void sendWiFiStrength()
+void sendWiFiStrengthAndIP()
 {
   long wifiStrength = WiFi.RSSI();
-  Serial.println("Sending Signal Strength: " + String(wifiStrength));
+  String localIP = WiFi.localIP().toString();
+  Serial.println("Sending Signal Strength: " + String(wifiStrength) + " Local IP: " + localIP);
   Blynk.virtualWrite(V11, wifiStrength);
+  Blynk.virtualWrite(V13, localIP);
 }
 
 unsigned long currentMillis = millis();
@@ -86,7 +89,7 @@ void customTimer(unsigned int timeInMillisec)
   {
     previousMillis = currentMillis;
     // Put functions to be triggered after timer
-    sendWiFiStrength();
+    sendWiFiStrengthAndIP();
     sendUpTime();
   }
 }
