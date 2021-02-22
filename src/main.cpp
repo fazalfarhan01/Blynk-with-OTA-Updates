@@ -48,6 +48,10 @@ BLYNK_WRITE(V4)
 {
   digitalWrite(D5, !param.asInt());
 }
+BLYNK_WRITE(V5)
+{
+  digitalWrite(D6, !param.asInt());
+}
 BLYNK_WRITE(V12)
 {
   if (param.asInt() >= 100)
@@ -105,6 +109,7 @@ void yourSetup()
   pinMode(D3, OUTPUT);
   pinMode(D4, OUTPUT);
   pinMode(D5, OUTPUT);
+  pinMode(D6, OUTPUT);
   Serial.println("Setting up timers..!");
   Blynk.virtualWrite(V12, 0);
 }
